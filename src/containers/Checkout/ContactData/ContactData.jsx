@@ -111,13 +111,16 @@ class ContactData extends Component {
             orderData: formData,
             userId: this.props.userId
         }
+
         this.props.onOrderBurger(order, this.props.token);
+        
     }
 
     inputChangedHandler = (event, inputIdentifier) => {
-        const updatedFormElement = updateObject(this.state.order[inputIdentifier], { 
+        
+        const updatedFormElement = updateObject(this.state.orderForm[inputIdentifier], {
             value: event.target.value,
-            valid: checkValidity(event.target.value, this.state.order[inputIdentifier].validation),
+            valid: checkValidity(event.target.value, this.state.orderForm[inputIdentifier].validation),
             touched: true
         });
         const updatedOrderForm = updateObject(this.state.orderForm, {
